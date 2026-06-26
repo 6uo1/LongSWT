@@ -1,0 +1,699 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 25%),
+        linear-gradient(135deg, #050505, #111111 45%, #1a1407);
+    color: #f5f5f5;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.luxury-card {
+    width: 100%;
+    max-width: 620px;
+    padding: 38px;
+    border-radius: 24px;
+    background: rgba(15, 15, 15, 0.86);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65),
+        inset 0 0 40px rgba(212, 175, 55, 0.04);
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-badge {
+    display: inline-block;
+    padding: 7px 18px;
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    border-radius: 999px;
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.brand p {
+    margin: 10px 0 0;
+    color: #b8b8b8;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: #0c0c0c;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+select:focus,
+input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+}
+
+select option {
+    background: #111111;
+    color: #ffffff;
+}
+
+.btn-gold {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #b8860b, #d4af37, #f5d76e);
+    color: #111111;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(212, 175, 55, 0.28);
+}
+
+.error {
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: rgba(220, 38, 38, 0.16);
+    border: 1px solid rgba(248, 113, 113, 0.5);
+    color: #fecaca;
+}
+
+.note {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+    color: #a3a3a3;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.result-table tr {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.result-table td {
+    padding: 15px 10px;
+    color: #e5e5e5;
+}
+
+.result-table td:first-child {
+    color: #d4af37;
+    font-weight: 700;
+}
+select:required:invalid {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+select option {
+    color: #ffffff;
+    background: #111111;
+}
+
+select option[value=""] {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.commission-box {
+    margin-top: 28px;
+    padding: 26px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(212, 175, 55, 0.38);
+}
+
+.commission-label {
+    color: #b8b8b8;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.commission-value {
+    margin-top: 8px;
+    color: #f5d76e;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.back-link {
+    display: block;
+    margin-top: 24px;
+    padding: 14px;
+    text-align: center;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #111111;
+    background: linear-gradient(135deg, #b8860b, #d4af37, #f5d76e);
+    font-weight: 800;
+    transition: 0.25s;
+}
+
+.back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(212, 175, 55, 0.28);
+}
+
+@media (max-width: 600px) {
+    .luxury-card {
+        padding: 28px 22px;
+    }
+
+    .brand h1 {
+        font-size: 27px;
+    }
+
+    .commission-value {
+        font-size: 34px;
+    }
+}
+/* ===============================
+   LUXURY ANIMATION EFFECTS
+   Snow + Lightning
+================================ */
+
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snow::before,
+.snow::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.85) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 1px),
+        radial-gradient(circle, rgba(212,175,55,0.45) 1px, transparent 1px);
+    background-size: 90px 90px, 140px 140px, 220px 220px;
+    background-position: 0 0, 45px 60px, 100px 120px;
+    animation: snowFall 18s linear infinite;
+}
+
+.snow::after {
+    opacity: 0.45;
+    filter: blur(1px);
+    animation-duration: 28s;
+    animation-delay: 8s;
+}
+
+@keyframes snowFall {
+    from {
+        transform: translateY(-10%);
+    }
+
+    to {
+        transform: translateY(50%);
+    }
+}
+
+.lightning {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background:
+        linear-gradient(115deg, transparent 0%, transparent 46%, rgba(255,255,255,0.8) 48%, transparent 50%, transparent 100%);
+    opacity: 0;
+    animation: lightningFlash 7s infinite;
+}
+
+@keyframes lightningFlash {
+    0% {
+        opacity: 0;
+    }
+
+    92% {
+        opacity: 0;
+    }
+
+    93% {
+        opacity: 0.15;
+    }
+
+    94% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 0.25;
+    }
+
+    96% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+    }
+
+
+/* Đảm bảo form nằm trên animation */
+.page-wrapper {
+    position: relative;
+    z-index: 5;
+}
+/* ===============================
+   BETTER LUXURY EFFECT
+   Gold dust + aurora glow
+================================ */
+
+.luxury-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.luxury-bg span {
+    position: absolute;
+    display: block;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.10), transparent 70%);
+    filter: blur(8px);
+    animation: luxuryFloat 12s ease-in-out infinite;
+}
+
+.luxury-bg span:nth-child(1) {
+    top: 8%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.luxury-bg span:nth-child(2) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.luxury-bg span:nth-child(3) {
+    top: 72%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.luxury-bg span:nth-child(4) {
+    top: 10%;
+    left: 72%;
+    animation-delay: 6s;
+}
+@keyframes luxuryFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.18;
+    }
+
+    50% {
+        transform: translate(35px, -35px) scale(1.15);
+        opacity: 0.32;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.18;
+    }
+}
+
+.gold-particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        radial-gradient(circle, rgba(245, 215, 110, 0.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(212, 175, 55, 0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+    background-size:
+        120px 120px,
+        180px 180px,
+        260px 260px;
+    background-position:
+        0 0,
+        40px 70px,
+        90px 140px;
+    animation: goldDustMove 22s linear infinite;
+    opacity: 0.65;
+}
+
+@keyframes goldDustMove {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-180px);
+    }
+}
+
+/* Card glow đẹp hơn */
+.luxury-card {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+
+
+
+@keyframes cardBorderGlow {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Button shine effect */
+.btn-gold {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -90px;
+    width: 60px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.45);
+    transform: skewX(-25deg);
+    animation: buttonShine 3.8s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+    0% {
+        left: -90px;
+    }
+
+    45% {
+        left: -90px;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+/* ===============================
+   MONEY RAIN EFFECT
+================================ */
+
+.money-rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.money-rain span {
+    position: absolute;
+    top: -80px;
+    color: rgba(245, 215, 110, 0.45);
+    font-size: 28px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+    animation: moneyFall linear infinite;
+}
+
+.money-rain span:nth-child(1) {
+    left: 5%;
+    animation-duration: 9s;
+    animation-delay: 0s;
+    font-size: 24px;
+}
+
+.money-rain span:nth-child(2) {
+    left: 14%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    font-size: 18px;
+}
+
+.money-rain span:nth-child(3) {
+    left: 24%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+    font-size: 30px;
+}
+
+.money-rain span:nth-child(4) {
+    left: 32%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    font-size: 22px;
+}
+
+.money-rain span:nth-child(5) {
+    left: 42%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+    font-size: 26px;
+}
+
+.money-rain span:nth-child(6) {
+    left: 50%;
+    animation-duration: 15s;
+    animation-delay: 5s;
+    font-size: 20px;
+}
+
+.money-rain span:nth-child(7) {
+    left: 59%;
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+    font-size: 32px;
+}
+
+.money-rain span:nth-child(8) {
+    left: 68%;
+    animation-duration: 13s;
+    animation-delay: 2.5s;
+    font-size: 21px;
+}
+
+.money-rain span:nth-child(9) {
+    left: 76%;
+    animation-duration: 10s;
+    animation-delay: 4.5s;
+    font-size: 28px;
+}
+
+.money-rain span:nth-child(10) {
+    left: 84%;
+    animation-duration: 16s;
+    animation-delay: 0.5s;
+    font-size: 19px;
+}
+
+.money-rain span:nth-child(11) {
+    left: 91%;
+    animation-duration: 12s;
+    animation-delay: 3.5s;
+    font-size: 25px;
+}
+
+.money-rain span:nth-child(12) {
+    left: 97%;
+    animation-duration: 14s;
+    animation-delay: 6s;
+    font-size: 18px;
+}
+
+@keyframes moneyFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* ===============================
+   PREMIUM FINANCE EFFECTS
+   Clean luxury animation
+================================ */
+
+/* Card load animation */
+.luxury-card {
+    animation: cardFadeUp 0.8s ease forwards;
+}
+
+@keyframes cardFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Input hover nhẹ */
+select:hover,
+input:hover {
+    border-color: rgba(212, 175, 55, 0.65);
+}
+
+/* Input focus sang hơn */
+select:focus,
+input:focus {
+    border-color: #d4af37;
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.14),
+        0 0 18px rgba(212, 175, 55, 0.16);
+}
+
+/* Label đổi sáng nhẹ khi form group focus */
+.form-group:focus-within label {
+    color: #f5d76e;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.28);
+}
+
+/* Commission result glow */
+.commission-value {
+    animation: commissionGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes commissionGlow {
+    0% {
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow:
+            0 0 14px rgba(212, 175, 55, 0.55),
+            0 0 28px rgba(212, 175, 55, 0.25);
+        transform: scale(1.025);
+    }
+
+    100% {
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
+        transform: scale(1);
+    }
+}
+
+/* Table row hover ở result */
+.result-table tr {
+    transition: 0.25s ease;
+}
+
+.result-table tr:hover {
+    background: rgba(212, 175, 55, 0.06);
+}
+.brand::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 2px;
+    margin: 18px auto 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(212, 175, 55, 0.9),
+        transparent
+    );
+}
+.success-badge {
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #86efac;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
